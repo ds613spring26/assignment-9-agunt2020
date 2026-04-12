@@ -31,6 +31,17 @@ Use the **`tidytext`** package and three different **sentiment lexicons** (`nrc`
 1.  **Data Preparation**
 
     -   Load the `austen_books()` dataset from the **`janeaustenr`** package.
+install.packages("janeaustenr")
+library(janeaustenr) 
+
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+library(textdata)
+library(scales)
+
+Austen <- austen_books
+Austen
     -   Group by book and detect chapter boundaries using regex.
     -   Create `linenumber` and `chapter` columns.
 
