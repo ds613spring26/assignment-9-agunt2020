@@ -95,6 +95,11 @@ joy_words_afinn <- tidy_books |>
   inner_join(afinn_pos, by = "word")
 
         -   `bing` (positive)
+bing_pos <- get_sentiments("bing") |>
+  filter(sentiment == "positive")
+
+joy_words_bing <- tidy_books |>
+  inner_join(bing_pos, by = "word")
 
     -   Join each with *Emma*'s text and:
 
