@@ -71,6 +71,10 @@ austen_chapters
 2.  **Tokenization**
 
     -   Use `unnest_tokens()` to tokenize text into individual words.
+tidy_books <- austen_chapters|>
+  unnest_tokens(word, text)
+
+tidy_books
 
 3.  **Sentiment Analysis**
 
