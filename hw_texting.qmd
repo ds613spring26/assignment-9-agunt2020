@@ -43,6 +43,17 @@ library(scales)
 Austen <- austen_books
 Austen
     -   Group by book and detect chapter boundaries using regex.
+austen_chapters <- Austen|>
+  group_by(book)|>
+  mutate(
+    chapter = cumsum(str_detect(
+      text,
+      regex("^chapter [0-9ivxlc]+", ignore_case = TRUE)
+    ))
+  )|>
+  ungroup()
+
+austen_chapters
     -   Create `linenumber` and `chapter` columns.
 
 2.  **Tokenization**
