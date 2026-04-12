@@ -55,6 +55,18 @@ austen_chapters <- Austen|>
 
 austen_chapters
     -   Create `linenumber` and `chapter` columns.
+austen_chapters <- Austen|>
+  group_by(book)|>
+  mutate(
+    linenumber = row_number(), 
+    chapter = cumsum(str_detect(
+      text,
+      regex("^chapter [0-9ivxlc]+", ignore_case = TRUE)
+    ))
+  )|>
+  ungroup()
+
+austen_chapters
 
 2.  **Tokenization**
 
