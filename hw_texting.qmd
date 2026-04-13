@@ -118,6 +118,19 @@ emma_words <- tidy_books |>
 
         -   Visualize using a **bar chart** (`ggplot2`) and a **word cloud** (`wordcloud`).
 
+emma_words |>
+  arrange(desc(n_emma)) |>
+  slice_max(n_emma, n = 20) |>
+  ggplot(aes(x = reorder(word, n_emma), y = n_emma)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Frequent words in Emma (n > 50)",
+    x = "Word",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
 4.  **Push to GitHub**
 
     -   Push your complete rendred qmd (`.html` file) to a **GitHub repository**.
