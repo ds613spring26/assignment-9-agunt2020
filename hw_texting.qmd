@@ -107,10 +107,7 @@ joy_words_bing <- tidy_books |>
 
 emma_words <- tidy_books |>
   filter(book == "Emma") |>
-  count(word, name = "n_emma") |>
-  filter(n_emma > 50)
-
-emma_words
+  count(word, name = "n_emma")
 
         -   Filter for frequently occurring words (`n > 50`).
         -   Visualize using a **bar chart** (`ggplot2`) and a **word cloud** (`wordcloud`).
