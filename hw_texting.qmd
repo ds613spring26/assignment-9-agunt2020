@@ -131,6 +131,16 @@ emma_words |>
   ) +
   theme_minimal()
 
+set.seed(123)
+wordcloud(
+  words  = emma_words$word,
+  freq   = emma_words$n_emma,
+  min.freq = 50,
+  max.words = 200,
+  random.order = FALSE,
+  colors = RColorBrewer::brewer.pal(8, "Dark2")
+)
+
 4.  **Push to GitHub**
 
     -   Push your complete rendred qmd (`.html` file) to a **GitHub repository**.
