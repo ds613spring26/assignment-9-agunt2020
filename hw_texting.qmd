@@ -92,10 +92,12 @@ joy_words_nrc
 
         -   `afinn` (positive scores ≥ 1)
 afinn_pos <- get_sentiments("afinn") |>
-  filter(score >= 1)
+  filter(value >= 1)
 
 joy_words_afinn <- tidy_books |>
   inner_join(afinn_pos, by = "word")
+
+joy_words_afinn
 
         -   `bing` (positive)
 bing_pos <- get_sentiments("bing") |>
