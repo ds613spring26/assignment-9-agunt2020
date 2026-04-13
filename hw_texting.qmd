@@ -81,11 +81,14 @@ tidy_books
     -   Filter joy/positive words from **each** of the three sentiment lexicons:
 
         -   `nrc` (joy)
+
 nrc_joy <- get_sentiments("nrc") |>
   filter(sentiment == "joy")
 
 joy_words_nrc <- tidy_books |>
   inner_join(nrc_joy, by = "word")
+
+joy_words_nrc
 
         -   `afinn` (positive scores ≥ 1)
 afinn_pos <- get_sentiments("afinn") |>
